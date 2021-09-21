@@ -2,13 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: pink;
+            text-align: center;
+        }
+
+        .letter {
+            font-size: 90px;
+            font-family: "Pacifico", cursive;
+            display: inline-block;
+            color: grey;
+            transition: all 250ms ease-in-out;
+        }
+
+        .letter.active {
+            transform: scale(1.5) rotate(20deg);
+            color: purple;
+
+        }
+    </style>
+  
+    
 </head>
 <body>
 
-    <h1>Final Project</h1>
+    <h1>Gabrielle Jackson</h1>
+
+
+
+    <script>
+
+        const h1 = document.querySelector('h1')
+        const letters = h1.innerText.split('')
+        let html =''
+
+        letters.forEach(letter => {
+            let classes = ''
+            if(letter !== ' '){
+                classes = 'letter js-letter'
+            }
+            html= html + `<span class='${classes}'>${letter}</span>`
+
+        })
+
+        h1.innerHTML = html
+        const jsLetters = document.querySelectorAll('.js-letter')
+        jsLetters.forEach(node => {
+            node.addEventListener('mouseover', function(e) {
+                this.classList.add('active')
+
+            })
+            node.addEventListener('mouseout', function(e) {
+                this.classList.remove('active')
+
+            })
+        })
+
+
+
+
+
+
+
+    </script>
     
 </body>
 </html>
